@@ -107,24 +107,5 @@ public class MainController {
                 System.out.println(TAG + "Error is " + databaseError);
             }
         });
-
-        rootRef.runTransaction(new Transaction.Handler() {
-            public Transaction.Result doTransaction(MutableData mutableData) {
-
-                for (MutableData data :
-                        mutableData.getChildren()) {
-
-                    TestModel model = data.getValue(TestModel.class);
-
-                    System.out.println(TAG + "Data is " + model);
-                }
-                return Transaction.success(mutableData);
-            }
-
-            public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
-                System.out.println(TAG + "Error is " + databaseError);
-            }
-        });
-
     }
 }
